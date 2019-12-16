@@ -15,7 +15,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "generate": "node ./codegen/index.js"
   },
   "devDependencies": {
     "@ember/edition-utils": "^1.1.1",
@@ -48,5 +49,9 @@
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "lorem-ipsum": "^2.0.3"
   }
 }

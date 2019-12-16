@@ -4,6 +4,11 @@
 /dist/
 /tmp/
 
+/public/fixtures/
+/app/models/
+/app/serializers/
+/app/adapters/
+
 # dependencies
 /bower_components/
 /node_modules/

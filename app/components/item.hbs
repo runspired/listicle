@@ -2,7 +2,11 @@
   <h3>{{@item.text}}</h3>
   <ol>
     {{#each @item.facets as |facet|}}
-      <li>{{facet.description}}</li>
+      <li>
+        <strong>{{facet.fieldName}}:</strong>
+        <em>{{get facet facet.fieldName}}</em>
+        <p>{{facet.description}}</p>
+      </li>
     {{/each}}
   </ol>
 </item>
