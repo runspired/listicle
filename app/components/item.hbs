@@ -1,0 +1,8 @@
+<item>
+  <h3>{{@item.text}}</h3>
+  <ol>
+    {{#each @item.facets as |facet|}}
+      <li>{{facet.description}}</li>
+    {{/each}}
+  </ol>
+</item>

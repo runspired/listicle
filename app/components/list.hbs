@@ -1,0 +1,9 @@
+<list>
+  <h2>{{@list.title}}</h2>
+  <h3>Authored By {{@list.author.name}}</h3>
+  <ul>
+    {{#each @list.items as |item|}}
+      <li>{{yield item}}</li>
+    {{/each}}
+  </ul>
+</list>
