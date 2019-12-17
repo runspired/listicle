@@ -2,7 +2,7 @@
 
 **_Welcome!_**
 
-Over the next few weeks we're going to build and optimize an application using EmberData. The application we're building is called **Listicle**. It's a deceptively simple app with many commonly seen data structures. It is intentionally designed to incorporate some of the worst performance scenarios that applications routinely encounter.
+Over the next few weeks we're going to build and optimize an application using EmberData. The application we're building is called **Listicle**. It's a deceptively simple app with many commonly seen data structures, and designed to incorporate some of the worst performance scenarios applications routinely encounter.
 
 We're building Listicle as a starting point. We're going to start with an app with abysmal performance, and iterate until we achieve great performance. This series is for beginners and experts alike, regardless of whether you build applications with Ember, or if you even like EmberData—and especially _if not._
 
@@ -12,7 +12,7 @@ If you've never used EmberData, I'd recommend learning a bit about the architect
 
 **_Our Application_**
 
-**Listicle** is an application full of Top 20 lists for you to read, and the simple setup of a feed to scroll through available lists. As the name suggests, each list has 20 items. And of course our lists are created by our wonderful staff of authors.
+**Listicle** is an application full of Top 20 lists for you to read, with the simple setup of a feed to scroll through available lists. As the name suggests, each list has 20 items. And of course our lists are created by our wonderful staff of authors.
 
 Let's look at how we model `Author`, `List` and `Item`.
 
@@ -50,7 +50,7 @@ export default class Item extends Model {
 }
 ```
 
-You'll notice that each item also has **facets** (the reasons why this item is great!). In Listicle, every item included on a list has 5 characteristics that make it so great!
+You'll notice each item also has **facets** (the reasons why this item is great!). In Listicle, every item included on a list has 5 characteristics that make it so great!
 
 Because our Top 20 lists could be anything, facets are [polymorphic](https://en.wikipedia.org/wiki/Subtyping): each item has its own type of facets with their own unique properties.
 
@@ -82,21 +82,21 @@ export default Item1Facet extends Facet {
 }
 ```
 
-> Note: Yes, this Facet could be modeled without polymorphism by having a generic `value` attr. But this form of polymorphism is currently fairly common, and more importantly, "real" applications often have dozens to thousands of models. This setup gives us a convenient way of exploring data at both large and small scales.
+> Note: Yes, this Facet could be modeled without polymorphism by having a generic `value` attr. But this form of polymorphism is fairly common, and more importantly, "real" applications often have dozens to thousands of models. This setup gives us a convenient way of exploring data at both large and small scales.
 
-One final note on our initial design. **We're going to create an [Adapter](https://api.emberjs.com/ember-data/3.14/modules/@ember-data%2Fadapter) and a [Serializer](https://api.emberjs.com/ember-data/3.14/modules/@ember-data%2Fserializer) for every single Model type.** This is to mirror a common mistake that many Ember applications make when using EmberData.
+One final note on our initial design. **We're going to create an [Adapter](https://api.emberjs.com/ember-data/3.14/modules/@ember-data%2Fadapter) and a [Serializer](https://api.emberjs.com/ember-data/3.14/modules/@ember-data%2Fserializer) for every single Model type.** This is to mirror a common mistake many Ember applications make when using EmberData.
 
 **Listicle** is conceived as a small app shell full of rich content lists. But what happens as our content grows? On January 1st, 2020 Listicle opens for business and begins publishing one new post a day.
 
-By mid-July Listicle has produced 200 lists! Our site, which early on had felt snappy and fast to the users that poured into read our hottest articles has now slowed to a crawl.  And where initially as engineers we were happy and productive, now our build times have slowed to a crawl.
+By mid-July Listicle has produced 200 lists! Our site, which early on felt snappy and fast to the users who poured in to read our hottest articles, has now slowed to a crawl.  And where initially as engineers we were happy and productive, now our build times have slowed to a crawl.
 
 **_What happened?_**
 
-Initially (ignoring authors) there was only one list to fetch, with 20 items, and 5 facets. 26 total records, 4 total Model classes, 12 total classes counting Adapters and Serializers. But as Listicle has grown we added more Models, Adapters, and Serializers to handle all these facets.
+Initially (ignoring authors) there was only one list to fetch, with 20 items, and 5 facets. 26 total records, 4 total Model classes, 12 total classes, including Adapters and Serializers. But as Listicle has grown, we added more Models, Adapters, and Serializers to handle all these facets.
 
 And now, 200 days in, we've got 200 lists, 4k items, 20k facets and 12009 total classes. Oof.
 
-This may sound contrived, but this is far smaller yet still representative of what an application I write infrastructure for looked like 3 years ago. This helps to show why certain architectural choices for EmberData failed, leading too many apps to have bad performance by default. More importantly, refactoring this application will illuminate why other architectural choices in EmberData are solid, providing value to both large and small apps, and why we are rebuilding over the top of them. 
+This may sound contrived, but this is far smaller, yet still representative of what an application I write infrastructure for looked like 3 years ago. This helps to show why certain architectural choices for EmberData failed, leading too many apps to have bad performance by default. More importantly, refactoring this application will illuminate why other architectural choices in EmberData are solid, providing value to both large and small apps, and why we are rebuilding over the top of them. 
 
 **_Let's get started_**
 
