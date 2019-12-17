@@ -131,7 +131,7 @@ this build is going to take. We are also manually invoking the `ember`
 command with `node` so that we can allocate more memory for `node` to use
 as otherwise (hint) this build will be so big it will fail. Finally, we are saving the built assets into a special `dists` directory which we will check into source control.
 
-Throughout this series, we will commit in the `dists` from various check-points so that we can compare them quickly later both with tooling and manually.
+Throughout this series, we will commit the built assets from various check-points so that we can compare them quickly later both with tooling and manually.
 
 If you clone the [listicle repo](https://github.com/runspired/listicle) and run `yarn install`, you can serve these assets to do your own perf exploration by running the following command and then navigating your web browser of choice to `localhost:4200`:
 
@@ -149,7 +149,7 @@ After several minutes, our build completes, let's take a look.
 
 Some stats:
 
-- Our build took over 3.5 minutes
+- Our build took over 5.5 minutes
 - Our app.js file is 20.74 Mb but compresses to 183.5 Kb
 - Our vendor.js file is 690 Kb but compresses to 174.9 Kb
 
