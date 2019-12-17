@@ -137,3 +137,5 @@ But `JSON:API` is also very verbose. Why write `user.relationships.friends.data[
 Mostly we just need a robust spec for our payloads. Any spec providing similar value would work just as well. I hope if you aren't convinced already that the value in adopting a spec will become increasingly clear over the course of this series.
 
 **In my next post,** we'll add some tooling for monitoring build times, asset sizes, and rendering performance as CI jobs using Github Actions. Why? Because you can't improve if you don't measure, and it's easy to regress if you don't monitor.
+
+In the mean time, if you have any questions please ask them on this [forum thread](https://discuss.emberjs.com/t/optimizing-your-app-with-emberdata/17331), on [Twitter](https://twitter.com/runspired), or in the [Ember Community Discord Server](https://discordapp.com/invite/zT3asNS).
