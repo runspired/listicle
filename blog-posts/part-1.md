@@ -176,7 +176,7 @@ Some notes:
 
 - This particular render took about 6 seconds. (There's also a few extra seconds from a delay with the profiler attaching)
 - Our JS Heap Size for memory is 500 Mb !!
-- We have 57 DOM Listeners !! (We will fix this in the near future)
+- We have 57 DOM Listeners !! (Considering we added none ourselves this is a bit of a surprise, We will fix this in a future commit)
 - We've got almost 340k DOM nodes !! (This series won't look into the benefits of [occlusion culling](https://en.wikipedia.org/wiki/Hidden-surface_determination) but we will look at the effects pagination has here)
 
 
