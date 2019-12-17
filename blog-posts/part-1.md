@@ -102,7 +102,7 @@ This may sound contrived, but this is far smaller, yet still representative of w
 
 Now that we've introduced Listicle, it's time to dig in. You can follow along with the code for this series by watching the [listicle repository](https://github.com/runspired/listicle).
 
-Most of the posts in this series won't skip over as much as this next bit will, since it's the optimizations that are interesting here and now the initial implementation itself. But before we dig in I want to give us a good sense of where we are starting from.
+Most of the posts in this series won't skip over as much as this next bit will, since it's the optimizations that are interesting here and not the initial implementation itself. But before we dig in I want to give us a good sense of where we are starting from.
 
 **_Building the app, time-travel edition_**
 
@@ -153,7 +153,7 @@ Some stats:
 - Our app.js file is 20.74 Mb but compresses to 183.5 Kb
 - Our vendor.js file is 690 Kb but compresses to 174.9 Kb
 
-Note I am not sure what the compression algorithm used or settings are here, later when we implement asset-size monitoring we will use [Brotli](https://en.wikipedia.org/wiki/Brotli) with compression set to Max (11).
+Note I am not sure what compression algorithm is used or what settings it is used with above, later when we implement asset-size monitoring we will use [Brotli](https://en.wikipedia.org/wiki/Brotli) with compression set to Max (11).
 
 What does this translate to in app performance? I took a quick profile of a page load to see.
 
