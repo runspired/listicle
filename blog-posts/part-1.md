@@ -170,7 +170,15 @@ Feel free to pull down the repo and serve up the app to poke around a timeline a
 
 One final measurement before we go.
 
-![Screenshot of Chrome Dev Tools overview for app render](./images/part-1/overview.png "Screenshot of Chrome Dev Tools Overview for app render")
+![Screenshot of Chrome Dev Tools overview for app render](./images/part-1/summary.png "Screenshot of Chrome Dev Tools Overview for app render")
+
+Some notes:
+
+- This particular render took about 6 seconds. (There's also a few extra seconds from a delay with the profiler attaching)
+- Our JS Heap Size for memory is 500 Mb !!
+- We have 57 DOM Listeners !! (We will fix this in the near future)
+- We've got almost 340k DOM nodes !! (This series won't look into the benefits of [occlusion culling](https://en.wikipedia.org/wiki/Hidden-surface_determination) but we will look at the effects pagination has here)
+
 
 In a future post we will setup automated performance analysis using [Tracerbench](https://github.com/TracerBench/tracerbench) to get high-fidelity benchmarks with confidence. While timeline based exploration is critical for quickly spotting problem spots, it isn't a great tool for knowing if we've improved them or not except when the improvement is very large (and thus easier to observe).
 
