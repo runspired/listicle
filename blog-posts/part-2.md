@@ -2,8 +2,8 @@
 
 **_Embracing an API Standard_**
 
-This is Part 2 of a series in which we build an application and optimize it's data
-management. If you haven't read it yet you should start with [Part 1](https://runspired.com/2019/12/15/optimizing-your-app-with-ember-data/).
+This is Part 2 of a series in which we build an application and optimize its data
+management. If you haven't read the first post yet you should start with [Part 1](https://runspired.com/2019/12/15/optimizing-your-app-with-ember-data/).
 
 EmberData focuses on helping you manage four key concerns in your application.
 
@@ -19,7 +19,7 @@ optimize our application. This post focuses on the **Network** portion, specific
 
 If EmberData's store service does not have enough information locally available to fulfill a request for data from the application, EmberData will forward the request to an adapter to retrieve data from somewhere else.
 
-Somewhere else could be any manner of things including LocalStorage, IndexDB, the other end of a Websocket Request, or an API accessed via Fetch.
+Somewhere else could be any manner of things including LocalStorage, IndexDB, the other end of a Websocket Request, or an API accessed via fetch, ajax, or xmlhttprequest.
 
 Once the [Adapter](https://api.emberjs.com/ember-data/release/modules/@ember-data%2Fadapter) responds, anything returned by it is passed to a [Serializer](https://api.emberjs.com/ember-data/release/modules/@ember-data%2Fserializer) to be normalized into [JSON:API](https://jsonapi.org/format/).
 
@@ -29,13 +29,13 @@ Once the [Adapter](https://api.emberjs.com/ember-data/release/modules/@ember-dat
 
 When EmberData was first written, there weren't any other specs for APIs optimized for consumption by a client. API driven design itself was in it's infancy and most APIs were either built to drive server rendered applications or provide bare-bones access to third-parties.
 
-Libraries that manage data need a way to understand the structure of the data they are managing. Out of this need, a format began forming within EmberData. Ultimately this format continued to evolve and became formalized into the `JSON:API` specification. The format quickly outgrew EmberData itself, and today the default configuration for EmberData only implements and utilizes a subset of the fuller spec.
+Libraries that manage data need a way to understand the structure of the data they are managing. Out of this need, a format began forming within EmberData. Ultimately this format continued to evolve and became formalized into the `JSON:API` specification. The format quickly outgrew EmberData itself, and today the default configuration for EmberData only implements and utilizes a subset of the complete spec.
 
 EmberData uses `JSON:API` to communicate between your API and the cache. A complaint I sometimes hear is that this use of `JSON:API` is confusing, and for some applications the format may be too limiting.
 
 We've heard these concerns, and we recognize that standards have progressed over time. With this in mind, we've encapsulated the primitives within EmberData and exposed public interfaces for them in a way that enables configurations to be built for EmberData that natively work with any format. Meanwhile, [Project Trim](https://github.com/emberjs/data/issues/6166) has been underway to ensure that applications configuring EmberData differently don't carry the cost of features that are unused or defaults they don't need.
 
-But while we are working to ensure that EmberData's primitives are flexible enough to provide best-in-class value for any format, don't pour one out for `JSON:API` just yet. The spec still brings incredible value that we haven't seen matched in other specifications. The potential introduction of [extensions](https://github.com/json-api/json-api/issues/1435) has the promise of addressing many long-standing needs.
+But while we are working to ensure that EmberData's primitives are flexible enough to provide best-in-class value for any format, don't give up on `JSON:API` just yet. The spec still brings incredible value that we haven't seen matched in other specifications, and the potential introduction of [extensions](https://github.com/json-api/json-api/issues/1435) has the promise of addressing many long-standing needs.
 
 So with this in mind, what is that value? I could probably write an entire series on that alone. This is not that series, but I'll cover a couple of key points that are relevant to this series as well as to new features now available in EmberData.
 
@@ -118,7 +118,9 @@ We can observe the value in this when we attempt a simpler flatter `JSON` repres
       "type": "user",
       "id": "2",
       "name": "Gaurav Munjal",
-      "friends": []
+      "friends": [
+        // JSON doesn't naturally have cycles, so what do we put here?
+      ]
     }
   ]
 }
@@ -134,7 +136,7 @@ But `JSON:API` is also very verbose. Why write `user.relationships.friends.data[
 
 **_`JSON:API` works well for graphs, so what?_**
 
-Mostly we just need a robust spec for our payloads. Any spec providing similar value would work just as well. I hope if you aren't convinced already that the value in adopting a spec will become increasingly clear over the course of this series.
+Mostly we just need a robust spec for our payloads. Any spec providing similar value would work just as well. The key takeaway is that explicit uniformity in API design enables easier and simpler usage by the consuming application. I hope if you aren't convinced already that the value in adopting a spec will become increasingly clear over the course of this series.
 
 **In my next post,** we'll add some tooling for monitoring build times, asset sizes, and rendering performance as CI jobs using Github Actions. Why? Because you can't improve if you don't measure, and it's easy to regress if you don't monitor.
 
