@@ -23,7 +23,7 @@ Somewhere else could be any manner of things including LocalStorage, IndexDB, th
 
 Once the [Adapter](https://api.emberjs.com/ember-data/release/modules/@ember-data%2Fadapter) responds, anything returned by it is passed to a [Serializer](https://api.emberjs.com/ember-data/release/modules/@ember-data%2Fserializer) to be normalized into [JSON:API](https://jsonapi.org/format/).
 
-![Request Flow]('./images/part-2/request-flow.png "Request Flow")
+![Request Flow](./images/part-2/request-flow.png "Request Flow")
 
 **_Why JSON:API?_**
 
