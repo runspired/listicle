@@ -128,7 +128,7 @@ We can observe the value in this when we attempt a simpler flatter `JSON` repres
 
 The value of `JSON:API` as a spec is not limited to its ability to accurately describe graphs. Payloads will often contain the same resource multiple times in multiple locations, and often multiple payloads will have overlapping edges in the graph.
 
-While some formats would require you deeply iterate the graph to discover all of the available nodes, `JSON:API` hoists all nodes (resources) to the top of the document. This makes caching by resource quick and easy, and it makes joining two or more graphs together equally easy.
+While some formats would require that you deeply iterate the graph to discover all of the available nodes, `JSON:API` hoists all nodes (resources) to the top of the document. This makes caching by resource quick and easy, and it makes joining two or more graphs together equally easy.
 
 `JSON:API` balances providing a descriptive data structure with a flattened graph to maximize the information that consuming applications can use to present that data.
 
