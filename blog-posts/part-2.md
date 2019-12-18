@@ -27,7 +27,7 @@ Once the [Adapter](https://api.emberjs.com/ember-data/release/modules/@ember-dat
 
 **_Why JSON:API?_**
 
-When EmberData was first written, there weren't any other specs for APIs optimized for consumption by a client. API driven design itself was in it's infancy and most APIs were either built to drive server rendered applications or provide bare-bones access to third-parties.
+When EmberData was first written, there weren't any other specs for APIs optimized for consumption by a client. API driven design itself was in its infancy and most APIs were either built to drive server rendered applications or provide bare-bones access to third-parties.
 
 Libraries that manage data need a way to understand the structure of the data they are managing. Out of this need, a format began forming within EmberData. Ultimately this format continued to evolve and became formalized into the `JSON:API` specification. The format quickly outgrew EmberData itself, and today the default configuration for EmberData only implements and utilizes a subset of the complete spec.
 
