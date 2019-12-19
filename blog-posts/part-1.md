@@ -2,9 +2,9 @@
 
 **_Welcome!_**
 
-Over the next few weeks we're going to build and optimize an application using EmberData. The application we're building is called **Listicle**. It's a deceptively simple app with many commonly seen data structures, and designed to incorporate some of the worst performance scenarios applications routinely encounter.
+Over the next few weeks we're going to build and optimize an application using EmberData. The application we're building is called **Listicle**. It's a deceptively simple app with many commonly seen data structures and is designed to incorporate some of the worst performance scenarios applications routinely encounter.
 
-We're building Listicle as a starting point. We're going to start with an app with abysmal performance, and iterate until we achieve great performance. This series is for beginners and experts alike, regardless of whether you build applications with Ember, or if you even like EmberData—and especially _if not._
+We're building Listicle as a starting point. We're going to start with an app with abysmal performance and iterate until we achieve great performance. This series is for beginners and experts alike, regardless of whether you build applications with Ember, or if you even like EmberData—and especially _if not._
 
 **_EmberData Crash Course_**
 
@@ -114,11 +114,11 @@ ember new listicle --yarn -b @ember/octane-app-blueprint --no-welcome
 
 Then we add our [basic app](https://github.com/runspired/listicle/commit/31fded57026b5fa12dbf2f6f7eedcf4d20d505ce) and we use [codegen](https://en.wikipedia.org/wiki/Automatic_programming) to [add our 12009 classes](https://github.com/runspired/listicle/commit/29404347955d2171d50222cd24c10f08f21e1d00) to the app (as well as fixture data to fetch for them).
 
-One detail of the basic app implementation to not gloss over is that in our initial implementation we are loading each list individually. This is often how initial designs start, don't worry, it is not where we will end up.
+One detail of the basic app implementation to not gloss over is that in our initial implementation we are loading each list individually. This is often how initial designs start. Don't worry, it is not where we will end up.
 
 **_Now, for some numbers_**
 
-As part of our codegen commit above we added a `generate` script to `package.json`, running it will place the Adapters, Models, Serializers, and Fixtures into their proper directories. Now that we've done this, let's take a few measurements to see where we are starting from.
+As part of our codegen commit above we added a `generate` script to `package.json`. Running it will place the Adapters, Models, Serializers, and Fixtures into their proper directories. Now that we've done this, let's take a few measurements to see where we are starting from.
 
 We will be making regular performance and asset-size checks on both our build and our app throughout this series and we will introduce the infrastructure we will use for that in one of our next posts.
 
@@ -153,7 +153,7 @@ Some stats:
 - Our app.js file is 20.74 Mb but compresses to 183.5 Kb
 - Our vendor.js file is 690 Kb but compresses to 174.9 Kb
 
-Note I am not sure what compression algorithm is used or what settings it is used with above, later when we implement asset-size monitoring we will use [Brotli](https://en.wikipedia.org/wiki/Brotli) with compression set to Max (11).
+Note: I am not sure what compression algorithm is used or what settings it is used with above, later when we implement asset-size monitoring we will use [Brotli](https://en.wikipedia.org/wiki/Brotli) with compression set to Max (11).
 
 What does this translate to in app performance? I took a quick profile of a page load to see.
 
